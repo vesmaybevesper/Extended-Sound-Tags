@@ -3,3 +3,4 @@ list of rules to follow when contributing i will make this read better later, bu
 - tag usage must be completely implemented, ie a rain tag must be added to all methods where a rain tag is used
 - you must version your contribution completely for all supported loaders and versions (currently: forge/fabric/neoforge & 1.18+)
 - If your tag requires new version splits to properly version you are responsible for adding that version and updating anything that may need it
+- mod compatibility should be added in the target mod instead of in here, we don't need 100 mixinsquared mixins
