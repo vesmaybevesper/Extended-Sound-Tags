@@ -201,7 +201,6 @@ public abstract class LightningBoltMixin extends Entity {
 				for(Entity entity : list1) {
 					/*? if forge {*//*if (!ForgeEventFactory.onEntityStruckByLightning(entity, (LightningBolt) (Object) this)) { *//*?}*/
 						/*? if neoforge {*//*if (!EventHooks.onEntityStruckByLightning(entity, (LightningBolt) (Object) this)) { *//*?}*/
-						// look, i have no clue why it hates THIS case but none of the others
 						entity.thunderHit((ServerLevel)this.level, (LightningBolt) (Object) this);
 						/*? if forge || neoforge {*//*}*//*?}*/
 				}
