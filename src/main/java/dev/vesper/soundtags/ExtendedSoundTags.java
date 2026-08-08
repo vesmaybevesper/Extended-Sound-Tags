@@ -2,7 +2,7 @@ package dev.vesper.soundtags;
 
 import dev.vesper.soundtags.platform.Platform;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,9 +17,9 @@ import dev.vesper.soundtags.platform.fabric.FabricPlatform;
 @SuppressWarnings("LoggingSimilarMessage")
 public class ExtendedSoundTags {
 
-	public static final String MOD_ID = /*$ mod_id*/ "soundtags";
+	public static final String MOD_ID = /*$ mod_id*/ "weathertags";
 	public static final String MOD_VERSION = /*$ mod_version*/ "1.0.0";
-	public static final String MOD_FRIENDLY_NAME = /*$ mod_name*/ "Extended Sound Tags";
+	public static final String MOD_FRIENDLY_NAME = /*$ mod_name*/ "Extended Weather Tags";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	private static final Platform PLATFORM = createPlatformInstance();
@@ -48,19 +48,19 @@ public class ExtendedSoundTags {
 		 *///?}
 	}
 
-	private static ResourceLocation id(String path) {
+	private static Identifier id(String path) {
 		//? > 1.19.2 {
-		/*return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
-		 *///?} <= 1.19.2 {
-		return new ResourceLocation(MOD_ID, path);
-		//?}
+		return Identifier.fromNamespaceAndPath(MOD_ID, path);
+		 //?} <= 1.19.2 {
+		/*return new Identifier(MOD_ID, path);
+		*///?}
 	}
 
-	private static ResourceLocation id(String namespace, String path) {
+	private static Identifier id(String namespace, String path) {
 		//? > 1.19.2 {
-		/*return ResourceLocation.fromNamespaceAndPath(namespace, path);
-		 *///?} <= 1.19.2 {
-		return new ResourceLocation(namespace, path);
-		//?}
+		return Identifier.fromNamespaceAndPath(namespace, path);
+		 //?} <= 1.19.2 {
+		/*return new Identifier(namespace, path);
+		*///?}
 	}
 }

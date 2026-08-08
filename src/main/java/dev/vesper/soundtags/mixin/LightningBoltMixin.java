@@ -56,18 +56,18 @@ public abstract class LightningBoltMixin extends Entity {
 	private final Set<Entity> hitEntities = Sets.newHashSet();
 
 	//? <=1.21{
-	@Shadow
+	/*@Shadow
 	private void spawnFire(int p_20871_) {}
 
 	@Shadow
 	private static void clearCopperOnLightningStrike(Level p_147151_, BlockPos p_147152_){}
-	//?} >=26.1{
-	/*@Shadow
+	*///?} >=26.1{
+	@Shadow
 	private void spawnFire(int additionalSources) {}
 
 	@Shadow
 	private static void clearCopperOnLightningStrike(Level level, BlockPos struckPos){}
-	*///?}
+	//?}
 
 	@Shadow
 	private BlockPos getStrikePosition(){return  null;}
@@ -83,7 +83,7 @@ public abstract class LightningBoltMixin extends Entity {
 	private void afterLoadLevel(CallbackInfo ci) {
 		// There needs to be someway to skip all this and use vanilla if no resourcepack using this is enabled
 		//? >=1.20{
-		/*super.tick();
+		super.tick();
 		if (this.life == 2){
 			if (this.level().isClientSide()){
 			if (this.weatherTags$isDistant()){
@@ -134,11 +134,11 @@ public abstract class LightningBoltMixin extends Entity {
 				List<Entity> list1 = this.level().getEntities(this, new AABB(this.getX() - (double)3.0F, this.getY() - (double)3.0F, this.getZ() - (double)3.0F, this.getX() + (double)3.0F, this.getY() + (double)6.0F + (double)3.0F, this.getZ() + (double)3.0F), Entity::isAlive);
 
 				for(Entity entity : list1) {
-					/^? if forge {^//^if (!ForgeEventFactory.onEntityStruckByLightning(entity, (LightningBolt) (Object) this)) { ^//^?}^/
-					/^? if neoforge {^//^if (!EventHooks.onEntityStruckByLightning(entity, (LightningBolt) (Object) this)) { ^//^?}^/
+					/*? if forge {*//*if (!ForgeEventFactory.onEntityStruckByLightning(entity, (LightningBolt) (Object) this)) { *//*?}*/
+					/*? if neoforge {*//*if (!EventHooks.onEntityStruckByLightning(entity, (LightningBolt) (Object) this)) { *//*?}*/
 						// look, i have no clue why it hates THIS case but none of the others
 						entity.thunderHit((ServerLevel)this.level(), (LightningBolt) (Object) this);
-					/^? if forge || neoforge {^//^}^//^?}^/
+					/*? if forge || neoforge {*//*}*//*?}*/
 				}
 
 				this.hitEntities.addAll(list1);
@@ -147,8 +147,8 @@ public abstract class LightningBoltMixin extends Entity {
 				}
 			}
 		}
-		*///?} <1.20{
-		super.tick();
+		//?} <1.20{
+		/*super.tick();
 		if (this.life == 2){
 			if (this.level.isClientSide()){
 				if (this.weatherTags$isDistant()){
@@ -199,10 +199,10 @@ public abstract class LightningBoltMixin extends Entity {
 				List<Entity> list1 = this.level.getEntities(this, new AABB(this.getX() - (double)3.0F, this.getY() - (double)3.0F, this.getZ() - (double)3.0F, this.getX() + (double)3.0F, this.getY() + (double)6.0F + (double)3.0F, this.getZ() + (double)3.0F), Entity::isAlive);
 
 				for(Entity entity : list1) {
-					/*? if forge {*//*if (!ForgeEventFactory.onEntityStruckByLightning(entity, (LightningBolt) (Object) this)) { *//*?}*/
-					/*? if neoforge {*//*if (!EventHooks.onEntityStruckByLightning(entity, (LightningBolt) (Object) this)) { *//*?}*/
+					/^? if forge {^//^if (!ForgeEventFactory.onEntityStruckByLightning(entity, (LightningBolt) (Object) this)) { ^//^?}^/
+					/^? if neoforge {^//^if (!EventHooks.onEntityStruckByLightning(entity, (LightningBolt) (Object) this)) { ^//^?}^/
 						entity.thunderHit((ServerLevel)this.level, (LightningBolt) (Object) this);
-					/*? if forge || neoforge {*//*}*//*?}*/
+					/^? if forge || neoforge {^//^}^//^?}^/
 				}
 
 				this.hitEntities.addAll(list1);
@@ -211,7 +211,7 @@ public abstract class LightningBoltMixin extends Entity {
 				}
 			}
 		}
-		//?}
+		*///?}
 		ci.cancel();
 	}
 
@@ -220,10 +220,10 @@ public abstract class LightningBoltMixin extends Entity {
 	private boolean weatherTags$isDistant() {
 		Vec2 strikePos = new Vec2(((float) this.getX()), ((float) this.getY()));
 		//? >=1.19{
-		/*int renderDistBlocks = Minecraft.getInstance().options.renderDistance().get() * 16;
-		*///?} 1.18{
-		int renderDistBlocks = Minecraft.getInstance().options.renderDistance * 16;
-		//?}
+		int renderDistBlocks = Minecraft.getInstance().options.renderDistance().get() * 16;
+		//?} 1.18{
+		/*int renderDistBlocks = Minecraft.getInstance().options.renderDistance * 16;
+		*///?}
 		assert Minecraft.getInstance().player != null;
 		Vec2 playerPos = new Vec2(((float) Minecraft.getInstance().player.getX()), ((float) Minecraft.getInstance().player.getY()));
 		int distToStrikeX = (int) (playerPos.x - strikePos.x);
@@ -235,10 +235,10 @@ public abstract class LightningBoltMixin extends Entity {
 	private boolean weatherTags$isMedium() {
 		Vec2 strikePos = new Vec2(((float) this.getX()), ((float) this.getY()));
 		//? >=1.19{
-		/*int renderDistBlocks = Minecraft.getInstance().options.renderDistance().get() * 16;
-		*///?} 1.18{
-		int renderDistBlocks = Minecraft.getInstance().options.renderDistance * 16;
-		//?}
+		int renderDistBlocks = Minecraft.getInstance().options.renderDistance().get() * 16;
+		//?} 1.18{
+		/*int renderDistBlocks = Minecraft.getInstance().options.renderDistance * 16;
+		*///?}
 		assert Minecraft.getInstance().player != null;
 		Vec2 playerPos = new Vec2(((float) Minecraft.getInstance().player.getX()), ((float) Minecraft.getInstance().player.getY()));
 		int distToStrikeX = (int) (playerPos.x - strikePos.x);

@@ -2,9 +2,9 @@ package dev.vesper.soundtags.common;
 
 import net.minecraft.core.Registry;
 //? >=1.20{
-/*import net.minecraft.core.registries.BuiltInRegistries;
-*///?}
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.registries.BuiltInRegistries;
+//?}
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
 
 public class STSoundEvents {
@@ -13,27 +13,27 @@ public class STSoundEvents {
 	public static final SoundEvent WEATHER_RAIN_BELOW = register("weather.rain.below");
 
 	//? >=1.21{
-	/*private static SoundEvent register(final String id) {
-		return register(ResourceLocation.withDefaultNamespace(id));
+	private static SoundEvent register(final String id) {
+		return register(Identifier.withDefaultNamespace(id));
 	}
-	*///?} 1.20{
+	//?} 1.20{
 	/*private static SoundEvent register(final String id) {
-		return register(ResourceLocation.tryParse(id));
+		return register(Identifier.tryParse(id));
 	}
 	*///?}
 
 
 	//? >=1.20{
-	/*private static SoundEvent register(final ResourceLocation id) {
+	private static SoundEvent register(final Identifier id) {
 		return register(id, id);
 	}
 
-	private static SoundEvent register(final ResourceLocation id, final ResourceLocation soundId) {
+	private static SoundEvent register(final Identifier id, final Identifier soundId) {
 		return Registry.register(BuiltInRegistries.SOUND_EVENT, id, SoundEvent.createVariableRangeEvent(soundId));
 	}
-	*///?} <1.20{
-	private static SoundEvent register(String string) {
-		return Registry.register(Registry.SOUND_EVENT, string, new SoundEvent(new ResourceLocation(string)));
+	//?} <1.20{
+	/*private static SoundEvent register(String string) {
+		return Registry.register(Registry.SOUND_EVENT, string, new SoundEvent(new Identifier(string)));
 	}
-	//?}
+	*///?}
 }
