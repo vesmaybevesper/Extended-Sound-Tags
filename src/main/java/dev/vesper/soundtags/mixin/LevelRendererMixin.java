@@ -32,7 +32,7 @@ import java.util.Random;
 
 @Mixin(LevelRenderer.class)
 public class LevelRendererMixin {
-	@Shadow
+	/*@Shadow
 	private int ticks;
 
 	@Shadow
@@ -80,6 +80,7 @@ public class LevelRendererMixin {
 				this.rainSoundTime = 0;
 				if (blockPos2.getY() > blockPos.getY() + 1 && levelReader.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, blockPos).getY() > Mth.floor((float) blockPos.getY())) {
 					this.minecraft.level.playLocalSound(blockPos2, SoundEvents.WEATHER_RAIN_ABOVE, SoundSource.WEATHER, 0.1F, 0.5F, false);
+					//this else if is probably wrong but i have no idea if i want to make a tag for it anyway
 				} else if (blockPos2.getY() < blockPos.getY() -1 && levelReader.getHeightmapPos(Heightmap.Types.WORLD_SURFACE, blockPos).getY() < Mth.floor((float) blockPos.getY())) {
 					this.minecraft.level.playLocalSound(blockPos2, STSoundEvents.WEATHER_RAIN_BELOW, SoundSource.WEATHER, 0.1F, 0.5F, false);
 				} else {
@@ -89,5 +90,5 @@ public class LevelRendererMixin {
 
 		}
 		ci.cancel();
-	}
+	}*/
 }
