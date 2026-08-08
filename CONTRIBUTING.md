@@ -10,7 +10,7 @@ For a weather.rain.below tag we must add our tag with appropriate check to both 
 
 _Vanilla_
 ```` java
-...
+// Code continues from above
 if (blockPos2 != null && random.nextInt(3) < this.rainSoundTime++) {
 				this.rainSoundTime = 0;
 				if (blockPos2.getY() > blockPos.getY() + 1 && levelReader.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, blockPos).getY() > Mth.floor((float) blockPos.getY())) {
@@ -19,13 +19,13 @@ if (blockPos2 != null && random.nextInt(3) < this.rainSoundTime++) {
 					this.minecraft.level.playLocalSound(blockPos2, SoundEvents.WEATHER_RAIN, SoundSource.WEATHER, 0.2F, 1.0F, false);
 				}
 			}
-...
+// Code continues below
 ````
 
 _Mixin_
 
 ```` java
-...
+// Code continues from above
 if (blockPos2 != null && random.nextInt(3) < this.rainSoundTime++) {
 				this.rainSoundTime = 0;
 				if (blockPos2.getY() > blockPos.getY() + 1 && levelReader.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, blockPos).getY() > Mth.floor((float) blockPos.getY())) {
@@ -36,7 +36,7 @@ if (blockPos2 != null && random.nextInt(3) < this.rainSoundTime++) {
 					this.minecraft.level.playLocalSound(blockPos2, SoundEvents.WEATHER_RAIN, SoundSource.WEATHER, 0.2F, 1.0F, false);
 				}
 			}
-...
+// Code continues below
 ````
 
 _and_ to `WeatherEffectRenderer` via `LevelEffectRendererMixin` (>= 1.21.1)
@@ -44,6 +44,7 @@ _and_ to `WeatherEffectRenderer` via `LevelEffectRendererMixin` (>= 1.21.1)
 _Vanilla_
 
 ```` java
+// Code continues from above
 if (rainParticlePosition != null && random.nextInt(3) < this.rainSoundTime++) {
                 this.rainSoundTime = 0;
                 if (rainParticlePosition.getY() > cameraPosition.getY() + 1
@@ -53,11 +54,13 @@ if (rainParticlePosition != null && random.nextInt(3) < this.rainSoundTime++) {
                     level.playLocalSound(rainParticlePosition, SoundEvents.WEATHER_RAIN, SoundSource.WEATHER, 0.2F, 1.0F, false);
                 }
             }
+// Code continues below
 ````
 
 _Mixin_
 
 ```` java
+// Code continues from above
 if (rainParticlePosition != null && random.nextInt(3) < this.rainSoundTime++) {
                 this.rainSoundTime = 0;
                 if (rainParticlePosition.getY() > cameraPosition.getY() + 1
@@ -69,6 +72,7 @@ if (rainParticlePosition != null && random.nextInt(3) < this.rainSoundTime++) {
                     level.playLocalSound(rainParticlePosition, SoundEvents.WEATHER_RAIN, SoundSource.WEATHER, 0.2F, 1.0F, false);
                 }
             }
+// Code continues below
 ````
 
 ## Versioning:
@@ -77,9 +81,9 @@ Pull Requests must be completely versioned for all currently supported versions.
 
 | Loader | Versions                                     |
 |--------|----------------------------------------------|
- | Forge  | 1.18.x, 1.19.x, 1.20.x, 1.21.x(?)            |
+| Forge  | 1.18.x, 1.19.x, 1.20.x, 1.21.x(?)            |
 | Fabric | 1.18.x, 1.19.x, 1.20.x, 1.21.x, 26.1.x, 26.2 |
-| NeoForge | 1.21.x, 26.1.x, 26.2                         |
+| NeoForge | 1.21.x, 26.1.x, 26.2                       |
 
 While the best effort will be made to keep the above list accurate, please doublecheck `settings.gradle.kts` & `stonecutter.properties.toml` to find a complete list of versions.
 
