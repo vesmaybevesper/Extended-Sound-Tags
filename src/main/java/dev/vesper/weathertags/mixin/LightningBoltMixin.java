@@ -200,9 +200,9 @@ public abstract class LightningBoltMixin extends Entity {
 
 				for(Entity entity : list1) {
 					/*? if forge {*//*if (!ForgeEventFactory.onEntityStruckByLightning(entity, (LightningBolt) (Object) this)) { *//*?}*/
-						/*? if neoforge {*//*if (!EventHooks.onEntityStruckByLightning(entity, (LightningBolt) (Object) this)) { *//*?}*/
+					/*? if neoforge {*//*if (!EventHooks.onEntityStruckByLightning(entity, (LightningBolt) (Object) this)) { *//*?}*/
 						entity.thunderHit((ServerLevel)this.level, (LightningBolt) (Object) this);
-						/*? if forge || neoforge {*//*}*//*?}*/
+					/*? if forge || neoforge {*//*}*//*?}*/
 				}
 
 				this.hitEntities.addAll(list1);
