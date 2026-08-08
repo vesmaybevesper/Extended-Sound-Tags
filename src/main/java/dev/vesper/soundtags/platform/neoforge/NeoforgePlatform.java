@@ -1,8 +1,8 @@
-package dev.vesper.weathertags.platform.neoforge;
+package dev.vesper.soundtags.platform.neoforge;
 
 //? neoforge {
 
-/*import dev.vesper.weathertags.platform.Platform;
+/*import dev.vesper.soundtags.platform.Platform;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLLoader;
 import net.neoforged.fml.loading.VersionInfo;

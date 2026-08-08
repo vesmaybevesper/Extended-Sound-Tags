@@ -1,5 +1,6 @@
-package dev.vesper.weathertags.mixin;
+package dev.vesper.soundtags.mixin;
 
+import dev.vesper.soundtags.common.STSoundEvents;
 import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.ParticleStatus;
@@ -31,7 +32,6 @@ import java.util.Random;
 
 @Mixin(LevelRenderer.class)
 public class LevelRendererMixin {
-/*
 	@Shadow
 	private int ticks;
 
@@ -80,6 +80,8 @@ public class LevelRendererMixin {
 				this.rainSoundTime = 0;
 				if (blockPos2.getY() > blockPos.getY() + 1 && levelReader.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, blockPos).getY() > Mth.floor((float) blockPos.getY())) {
 					this.minecraft.level.playLocalSound(blockPos2, SoundEvents.WEATHER_RAIN_ABOVE, SoundSource.WEATHER, 0.1F, 0.5F, false);
+				} else if (blockPos2.getY() < blockPos.getY() -1 && levelReader.getHeightmapPos(Heightmap.Types.WORLD_SURFACE, blockPos).getY() < Mth.floor((float) blockPos.getY())) {
+					this.minecraft.level.playLocalSound(blockPos2, STSoundEvents.WEATHER_RAIN_BELOW, SoundSource.WEATHER, 0.1F, 0.5F, false);
 				} else {
 					this.minecraft.level.playLocalSound(blockPos2, SoundEvents.WEATHER_RAIN, SoundSource.WEATHER, 0.2F, 1.0F, false);
 				}
@@ -87,5 +89,5 @@ public class LevelRendererMixin {
 
 		}
 		ci.cancel();
-	}*/
+	}
 }

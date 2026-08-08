@@ -1,21 +1,21 @@
-package dev.vesper.weathertags;
+package dev.vesper.soundtags;
 
-import dev.vesper.weathertags.platform.Platform;
+import dev.vesper.soundtags.platform.Platform;
 
 import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 //? fabric {
-import dev.vesper.weathertags.platform.fabric.FabricPlatform;
+import dev.vesper.soundtags.platform.fabric.FabricPlatform;
 //?} neoforge {
-/*import dev.vesper.weathertags.platform.neoforge.NeoforgePlatform;
+/*import dev.vesper.soundtags.platform.neoforge.NeoforgePlatform;
  *///?} forge {
-/*import dev.vesper.weathertags.platform.forge.ForgePlatform;
+/*import dev.vesper.soundtags.platform.forge.ForgePlatform;
  *///?}
 
 @SuppressWarnings("LoggingSimilarMessage")
-public class ModTemplate {
+public class ExtendedSoundTags {
 
 	public static final String MOD_ID = /*$ mod_id*/ "soundtags";
 	public static final String MOD_VERSION = /*$ mod_version*/ "1.0.0";
@@ -25,12 +25,12 @@ public class ModTemplate {
 	private static final Platform PLATFORM = createPlatformInstance();
 
 	public static void onInitialize() {
-		LOGGER.info("Initializing {} on {}", MOD_ID, ModTemplate.xplat().loader());
+		LOGGER.info("Initializing {} on {}", MOD_ID, ExtendedSoundTags.xplat().loader());
 		LOGGER.debug("{}: { version: {}; friendly_name: {} }", MOD_ID, MOD_VERSION, MOD_FRIENDLY_NAME);
 	}
 
 	public static void onInitializeClient() {
-		LOGGER.info("Initializing {} Client on {}", MOD_ID, ModTemplate.xplat().loader());
+		LOGGER.info("Initializing {} Client on {}", MOD_ID, ExtendedSoundTags.xplat().loader());
 		LOGGER.debug("{}: { version: {}; friendly_name: {} }", MOD_ID, MOD_VERSION, MOD_FRIENDLY_NAME);
 	}
 

@@ -1,8 +1,8 @@
-package dev.vesper.weathertags.platform.neoforge;
+package dev.vesper.soundtags.platform.neoforge;
 
 //? neoforge {
 
-/*import dev.vesper.weathertags.ModTemplate;
+/*import dev.vesper.soundtags.ModTemplate;
 import net.neoforged.fml.common.Mod;
 
 @Mod(ModTemplate.MOD_ID)

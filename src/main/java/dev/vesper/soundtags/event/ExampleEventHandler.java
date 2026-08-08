@@ -1,9 +1,6 @@
-package dev.vesper.weathertags.event;
+package dev.vesper.soundtags.event;
 
-import dev.vesper.weathertags.ModTemplate;
 import net.minecraft.server.level.ServerPlayer;
-
-import java.util.Objects;
 
 public class ExampleEventHandler {
 

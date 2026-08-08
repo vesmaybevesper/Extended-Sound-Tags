@@ -1,4 +1,4 @@
-package dev.vesper.weathertags.platform;
+package dev.vesper.soundtags.platform;
 
 public interface Platform {
 	boolean isModLoaded(String modId);

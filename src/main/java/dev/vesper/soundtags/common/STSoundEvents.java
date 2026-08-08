@@ -1,4 +1,4 @@
-package dev.vesper.weathertags.common;
+package dev.vesper.soundtags.common;
 
 import net.minecraft.core.Registry;
 //? >=1.20{
@@ -7,7 +7,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 
-public class WTSoundEvents {
+public class STSoundEvents {
 	public static final SoundEvent LIGHTNING_STRIKE_FAR = register("weather.lightning.far");
 	public static final SoundEvent LIGHTNING_STRIKE_MED = register("weather.lightning.med");
 	public static final SoundEvent WEATHER_RAIN_BELOW = register("weather.rain.below");

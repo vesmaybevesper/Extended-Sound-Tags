@@ -1,8 +1,8 @@
-package dev.vesper.weathertags.platform.fabric;
+package dev.vesper.soundtags.platform.fabric;
 
 //? fabric {
 
-import dev.vesper.weathertags.platform.Platform;
+import dev.vesper.soundtags.platform.Platform;
 import net.fabricmc.loader.api.FabricLoader;
 
 public class FabricPlatform implements Platform {

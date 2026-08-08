@@ -1,8 +1,8 @@
-package dev.vesper.weathertags.platform.forge;
+package dev.vesper.soundtags.platform.forge;
 
 //? forge {
 
-/*import dev.vesper.weathertags.platform.Platform;
+/*import dev.vesper.soundtags.platform.Platform;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.FMLLoader;
 

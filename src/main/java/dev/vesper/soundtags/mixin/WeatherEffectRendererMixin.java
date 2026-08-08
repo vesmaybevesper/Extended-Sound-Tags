@@ -1,4 +1,4 @@
-package dev.vesper.weathertags.mixin;
+package dev.vesper.soundtags.mixin;
 
 /*
 import org.spongepowered.asm.mixin.Mixin;

@@ -1,8 +1,8 @@
-package dev.vesper.weathertags.platform.fabric;
+package dev.vesper.soundtags.platform.fabric;
 
 //? fabric {
 
-import dev.vesper.weathertags.ModTemplate;
+import dev.vesper.soundtags.ExtendedSoundTags;
 import dev.kikugie.fletching_table.annotation.fabric.Entrypoint;
 import net.fabricmc.api.ClientModInitializer;
 
@@ -11,7 +11,7 @@ public class FabricClientEntrypoint implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
-		ModTemplate.onInitializeClient();
+		ExtendedSoundTags.onInitializeClient();
 	}
 
 }

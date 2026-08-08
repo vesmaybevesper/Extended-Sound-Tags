@@ -1,5 +1,5 @@
 {
-  "package": "dev.vesper.weathertags.mixin",
+  "package": "dev.vesper.soundtags.mixin",
   "required": true,
   "minVersion": "0.8",
   "compatibilityLevel": "${java}",

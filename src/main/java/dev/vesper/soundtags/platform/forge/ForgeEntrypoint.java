@@ -1,8 +1,8 @@
-package dev.vesper.weathertags.platform.forge;
+package dev.vesper.soundtags.platform.forge;
 
 //? forge {
 
-/*import dev.vesper.weathertags.ModTemplate;
+/*import dev.vesper.soundtags.ModTemplate;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod(ModTemplate.MOD_ID)
