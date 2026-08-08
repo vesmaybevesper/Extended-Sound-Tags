@@ -87,9 +87,9 @@ public abstract class LightningBoltMixin extends Entity {
 		if (this.life == 2){
 			if (this.level().isClientSide()){
 			if (this.weatherTags$isDistant()){
-				this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), WTSoundEvents.LIGHTNING_STRIKE_FAR, SoundSource.BLOCKS, 10000.0F, 0.8F + this.random.nextFloat() * 0.2F, false);
+				this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), STSoundEvents.LIGHTNING_STRIKE_FAR, SoundSource.BLOCKS, 10000.0F, 0.8F + this.random.nextFloat() * 0.2F, false);
 			} else if (this.weatherTags$isMedium()){
-				this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), WTSoundEvents.LIGHTNING_STRIKE_MED, SoundSource.BLOCKS, 10000.0F, 0.8F + this.random.nextFloat() * 0.2F, false);
+				this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), STSoundEvents.LIGHTNING_STRIKE_MED, SoundSource.BLOCKS, 10000.0F, 0.8F + this.random.nextFloat() * 0.2F, false);
 				this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), SoundEvents.LIGHTNING_BOLT_IMPACT, SoundSource.BLOCKS, 1.0F, 0.5F + this.random.nextFloat() * 0.2F, false);
 			} else {
 				this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), SoundEvents.LIGHTNING_BOLT_THUNDER, SoundSource.BLOCKS, 10000.0F, 0.8F + this.random.nextFloat() * 0.2F, false);
