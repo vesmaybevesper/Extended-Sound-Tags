@@ -136,7 +136,7 @@ public abstract class LightningBoltMixin extends Entity {
 				for(Entity entity : list1) {
 					/*? if forge {*//*if (!ForgeEventFactory.onEntityStruckByLightning(entity, (LightningBolt) (Object) this)) { *//*?}*/
 					/*? if neoforge {*//*if (!EventHooks.onEntityStruckByLightning(entity, (LightningBolt) (Object) this)) { *//*?}*/
-						// look, i have no clue why it hates THIS case but none of the others
+						// Okay, Neo & Lex [Forge] dont like this, not sure if its whining just cause or if it will actually error
 						entity.thunderHit((ServerLevel)this.level(), (LightningBolt) (Object) this);
 					/*? if forge || neoforge {*//*}*//*?}*/
 				}
@@ -199,10 +199,10 @@ public abstract class LightningBoltMixin extends Entity {
 				List<Entity> list1 = this.level.getEntities(this, new AABB(this.getX() - (double)3.0F, this.getY() - (double)3.0F, this.getZ() - (double)3.0F, this.getX() + (double)3.0F, this.getY() + (double)6.0F + (double)3.0F, this.getZ() + (double)3.0F), Entity::isAlive);
 
 				for(Entity entity : list1) {
-					/^? if forge {^//^if (!ForgeEventFactory.onEntityStruckByLightning(entity, (LightningBolt) (Object) this)) { ^//^?}^/
+					/^? if forge {^/if (!ForgeEventFactory.onEntityStruckByLightning(entity, (LightningBolt) (Object) this)) { /^?}^/
 					/^? if neoforge {^//^if (!EventHooks.onEntityStruckByLightning(entity, (LightningBolt) (Object) this)) { ^//^?}^/
 						entity.thunderHit((ServerLevel)this.level, (LightningBolt) (Object) this);
-					/^? if forge || neoforge {^//^}^//^?}^/
+					/^? if forge || neoforge {^/}/^?}^/
 				}
 
 				this.hitEntities.addAll(list1);
