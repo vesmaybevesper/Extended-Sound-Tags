@@ -83,7 +83,7 @@ Pull Requests must be completely versioned for all currently supported versions.
 |--------|--------------------------------------|
 | Forge  | 1.18.x, 1.19.x, 1.20.x, 1.21.x(?)    |
 | Fabric | 1.18.x, 1.19.x, 1.20.x, 1.21.x, 26.x |
-| NeoForge | 1.21.x, 26.1.x, 26.2               |
+| NeoForge | 1.21.x, 26.x                       |
 
 While the best effort will be made to keep the above list accurate, please doublecheck `settings.gradle.kts` & `stonecutter.properties.toml` to find a complete list of versions.
 
