@@ -1,6 +1,94 @@
-list of rules to follow when contributing i will make this read better later, but if you see it like this you are here really early anyway:
 
-- tag usage must be completely implemented, ie a rain tag must be added to all methods where a rain tag is used
-- you must version your contribution completely for all supported loaders and versions (currently: forge/fabric/neoforge & 1.18+)
-- If your tag requires new version splits to properly version you are responsible for adding that version and updating anything that may need it
-- mod compatibility should be added in the target mod instead of in here, we don't need 100 mixinsquared mixins
+
+## Adding Tags:
+
+Tag additions should be implemented completely, meaning that if it is a variation tag, it must be added to all places the tag it's a variant of is, or if it's a new tag, it must be added to all applicable locations. Any omissions must be explained in your Pull Request.
+
+Example:
+
+For a weather.rain.below tag we must add our tag with appropriate check to both `LevelRender` via `LevelRendererMixin`
+
+_Vanilla_
+```` java
+...
+if (blockPos2 != null && random.nextInt(3) < this.rainSoundTime++) {
+				this.rainSoundTime = 0;
+				if (blockPos2.getY() > blockPos.getY() + 1 && levelReader.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, blockPos).getY() > Mth.floor((float) blockPos.getY())) {
+					this.minecraft.level.playLocalSound(blockPos2, SoundEvents.WEATHER_RAIN_ABOVE, SoundSource.WEATHER, 0.1F, 0.5F, false);
+				} else {
+					this.minecraft.level.playLocalSound(blockPos2, SoundEvents.WEATHER_RAIN, SoundSource.WEATHER, 0.2F, 1.0F, false);
+				}
+			}
+...
+````
+
+_Mixin_
+
+```` java
+...
+if (blockPos2 != null && random.nextInt(3) < this.rainSoundTime++) {
+				this.rainSoundTime = 0;
+				if (blockPos2.getY() > blockPos.getY() + 1 && levelReader.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, blockPos).getY() > Mth.floor((float) blockPos.getY())) {
+					this.minecraft.level.playLocalSound(blockPos2, SoundEvents.WEATHER_RAIN_ABOVE, SoundSource.WEATHER, 0.1F, 0.5F, false);
+				} else if (//Condition goes here) {
+				this.minecraft.level.playLocalSound(blockPos2, SoundEvents.WEATHER_RAIN_BELOW, SoundSource.WEATHER, 0.1F, 0.5F, false);
+				} else {
+					this.minecraft.level.playLocalSound(blockPos2, SoundEvents.WEATHER_RAIN, SoundSource.WEATHER, 0.2F, 1.0F, false);
+				}
+			}
+...
+````
+
+_and_ to `WeatherEffectRenderer` via `LevelEffectRendererMixin` (>= 1.21.1)
+
+_Vanilla_
+
+```` java
+if (rainParticlePosition != null && random.nextInt(3) < this.rainSoundTime++) {
+                this.rainSoundTime = 0;
+                if (rainParticlePosition.getY() > cameraPosition.getY() + 1
+                    && level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, cameraPosition).getY() > Mth.floor((float)cameraPosition.getY())) {
+                    level.playLocalSound(rainParticlePosition, SoundEvents.WEATHER_RAIN_ABOVE, SoundSource.WEATHER, 0.1F, 0.5F, false);
+                } else {
+                    level.playLocalSound(rainParticlePosition, SoundEvents.WEATHER_RAIN, SoundSource.WEATHER, 0.2F, 1.0F, false);
+                }
+            }
+````
+
+_Mixin_
+
+```` java
+if (rainParticlePosition != null && random.nextInt(3) < this.rainSoundTime++) {
+                this.rainSoundTime = 0;
+                if (rainParticlePosition.getY() > cameraPosition.getY() + 1
+                    && level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, cameraPosition).getY() > Mth.floor((float)cameraPosition.getY())) {
+                    level.playLocalSound(rainParticlePosition, SoundEvents.WEATHER_RAIN_ABOVE, SoundSource.WEATHER, 0.1F, 0.5F, false);
+                } else if (//Condition goes here) {
+                    level.playLocalSound(rainParticlePosition, SoundEvents.WEATHER_RAIN_BELOW, SoundSource.WEATHER, 0.1F, 0.5F, false);
+                } else {
+                    level.playLocalSound(rainParticlePosition, SoundEvents.WEATHER_RAIN, SoundSource.WEATHER, 0.2F, 1.0F, false);
+                }
+            }
+````
+
+## Versioning:
+
+Pull Requests must be completely versioned for all currently supported versions. Those being:
+
+| Loader | Versions                                     |
+|--------|----------------------------------------------|
+ | Forge  | 1.18.x, 1.19.x, 1.20.x, 1.21.x(?)            |
+| Fabric | 1.18.x, 1.19.x, 1.20.x, 1.21.x, 26.1.x, 26.2 |
+| NeoForge | 1.21.x, 26.1.x, 26.2                         |
+
+While the best effort will be made to keep the above list accurate, please doublecheck `settings.gradle.kts` & `stonecutter.properties.toml` to find a complete list of versions.
+
+If your change requires a changing of the way versions are split in order to version correctly, you are responsible for adding that version and updating anything else that may need to be updated as a result.
+
+## Mod Compatibility:
+
+Code that can be changed within this mod with checks for loaded mods will be accepted, but compatibility changes to use tags from this mod should be made in the target mod and will not be accepted. I would like to avoid adding more mixins than needed and really don't want to have to deal with MixinSquared.
+
+## Credits:
+
+Make sure you add yourself to the credits file when you make a commit! Add whatever name you want to be associated with and (optionally) what you added! Just don't remove anyone else's name or contributions!
